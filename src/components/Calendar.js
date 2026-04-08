@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import DateCell from "./DateCell";
 
-const Calendar = ({ startDate, endDate, setStartDate, setEndDate }) => {
-    const [currentDate, setCurrentDate] = useState(new Date());
+const Calendar = ({ startDate, endDate, setStartDate, setEndDate, currentDate, setCurrentDate }) => {
+   
     const year = currentDate.getFullYear();
 const month = currentDate.getMonth();
 

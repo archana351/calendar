@@ -8,7 +8,7 @@ function App() {
   const [endDate, setEndDate] = useState(null);
   const [notesMap, setNotesMap] = useState({});
   const [darkMode, setDarkMode] = useState(false);
-
+  const [currentDate, setCurrentDate] = useState(new Date());
   const isFirstLoad = useRef(true);
   // Load from localStorage
   useEffect(() => {
@@ -66,17 +66,20 @@ function App() {
             endDate={endDate}
             notesMap={notesMap}
             setNotesMap={setNotesMap}
+            currentDate={currentDate}
           />
         </div>
 
         {/* Calendar Right */}
         <div className="calendar-section">
           <Calendar
-            startDate={startDate}
-            endDate={endDate}
-            setStartDate={setStartDate}
-            setEndDate={setEndDate}
-          />
+  startDate={startDate}
+  endDate={endDate}
+  setStartDate={setStartDate}
+  setEndDate={setEndDate}
+  currentDate={currentDate}
+  setCurrentDate={setCurrentDate}
+/>
         </div>
 
       </div>

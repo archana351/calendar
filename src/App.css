@@ -32,6 +32,7 @@ html, body, #root {
   background: white;
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   min-height: 600px;
+  padding: 10px;
 }
 
 .hero-image img {
@@ -74,10 +75,17 @@ textarea:focus {
   .bottom-section {
     flex-direction: column;
   }
-
+  .container {
+    width: 95%;        /* shrink container */
+    height: auto;      /* remove fixed height */
+  }
+  .hero-image img {
+    height: 200px;     /* smaller image */
+  }
   .notes-section,
   .calendar-section {
     width: 100%;
+    padding: 20px 30px;
   }
 }
 .grid {

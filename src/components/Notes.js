@@ -1,8 +1,10 @@
 import React from "react";
 
-const Notes = ({ startDate, endDate, notesMap, setNotesMap }) => {
+const Notes = ({ startDate, endDate, notesMap, setNotesMap, currentDate }) => {
   const key =
-    startDate && endDate ? `${startDate}-${endDate}` : null;
+    startDate && endDate
+      ? `${currentDate.getFullYear()}-${currentDate.getMonth()}-${startDate}-${endDate}`
+      : null;
 
   const currentNote = key ? notesMap[key] || "" : "";
 
