@@ -7,9 +7,9 @@ This project was developed as part of a **Frontend Engineering Task** to demonst
 
 ## 🔗 Links
 
-* 🚀 **Live Demo**: https://your-live-link.vercel.app
-* 🎥 **Demo Video**: https://your-video-link
-* 💻 **GitHub Repo**: https://github.com/your-username/calendar-app
+* 🚀 **Live Demo**: https://calendar-xdhe.onrender.com
+* 🎥 **Demo Video**: https://drive.google.com/file/d/1ZNM1QQ73nZmOZ4sLRorF58JvLq8nD-HE/view?usp=sharing
+* 💻 **GitHub Repo**: https://github.com/archana351/calendar-app
 
 ---
 
