@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+  align-items: center;
+}
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Calendar */
+.calendar-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.container {
+  height: 90vh;
+  width: 900px;
+  margin: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  min-height: 600px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 500px;   
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.bottom-section {
+  display: flex;
+  height: 60%;
+}
+
+.notes-section {
+  width: 30%;
+  padding: 20px;
+  border-right: 1px solid #eee;
+  background-color: #fafafa;
+  overflow-y: auto;
+}
+
+.calendar-section {
+  width: 70%;
+  padding: 20px;
+}
+
+textarea {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  resize: none;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #4f46e5;
+}
+@media (max-width: 768px) {
+  .bottom-section {
+    flex-direction: column;
+  }
+
+  .notes-section,
+  .calendar-section {
+    width: 100%;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.date-cell {
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+/* Hover */
+.date-cell:hover {
+  background-color: #f5f7ff;
+  transform: scale(1.08);
+}
+
+/* Start Date */
+.date-cell.start {
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 20px 0 0 20px;
+}
+
+/* End Date */
+.date-cell.end {
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 0 20px 20px 0;
+}
+
+/* Single Day Selection */
+.date-cell.start.end {
+  border-radius: 20px;
+}
+
+/* In Range */
+.date-cell.in-range {
+  background-color: #e0e7ff;
+  color: #111;
+}
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.weekday {
+  padding: 5px;
+  color: #666;
+}
+.app.dark {
+  background-color: #111;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app.dark .calendar-container {
+  background: #1f1f1f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app.dark .date-cell {
+  color: white;
+}
+
+.app.dark .date-cell.in-range {
+  background-color: #374151;
+}
+
+.app.dark textarea {
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+}
+.date-cell.today {
+  border: 2px solid #22c55e;
+}
+.date-cell.start,
+.date-cell.end {
+  transform: scale(1.05);
+}
+.app.dark {
+  background-color: #111;
+  color: white; /* 👈 this fixes most text */
+}
+
+.app.dark .notes-section {
+  background-color: #1f1f1f;
+}
+
+.app.dark textarea {
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+}
+.app.dark .container {
+  background: #1f1f1f;
 }
