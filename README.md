@@ -73,13 +73,14 @@ src/
 ## ▶️ Getting Started
 
 ```id="i3s7xf"
-git clone https://github.com/your-username/calendar-app.git
-cd calendar-app
+git clone https://github.com/archana351/calendar
+cd calendar
 npm install
 npm start
 ```
 
 Runs on: http://localhost:3000
+Live at: https://calendar-xdhe.onrender.com
 
 ---
 
