@@ -3,6 +3,12 @@ body {
   font-family: Arial, sans-serif;
 }
 
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* App */
 .app {
   min-height: 100vh;
   display: flex;
@@ -11,42 +17,34 @@ body {
   align-items: center;
 }
 
-
-html, body, #root {
-  height: 100%;
-  margin: 0;
-}
-
-/* Calendar */
-.calendar-section {
-  flex: 1;
-  padding: 20px;
-}
-
+/* Container */
 .container {
-  height: 90vh;
   width: 900px;
+  max-width: 95%;
   margin: auto;
   border-radius: 16px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  min-height: 600px;
-  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
 }
 
+/* Hero Image */
 .hero-image img {
   width: 100%;
-  height: 500px;   
+  height: 280px;   /* 🔥 reduced (was 500px causing cut) */
   object-fit: cover;
   filter: brightness(0.85);
 }
 
+/* Bottom Layout */
 .bottom-section {
   display: flex;
-  height: 60%;
+  flex: 1;
 }
 
+/* Notes */
 .notes-section {
   width: 30%;
   padding: 20px;
@@ -55,11 +53,15 @@ html, body, #root {
   overflow-y: auto;
 }
 
+/* Calendar */
 .calendar-section {
   width: 70%;
-  padding: 20px;
+  padding: 20px 30px;   /* 🔥 added right spacing */
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
+/* Textarea */
 textarea {
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -71,28 +73,15 @@ textarea {
 textarea:focus {
   border-color: #4f46e5;
 }
-@media (max-width: 768px) {
-  .bottom-section {
-    flex-direction: column;
-  }
-  .container {
-    width: 95%;        /* shrink container */
-    height: auto;      /* remove fixed height */
-  }
-  .hero-image img {
-    height: 200px;     /* smaller image */
-  }
-  .notes-section,
-  .calendar-section {
-    width: 100%;
-    padding: 20px 30px;
-  }
-}
+
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 6px;
 }
+
+/* Date Cell */
 .date-cell {
   padding: 12px;
   text-align: center;
@@ -102,36 +91,42 @@ textarea:focus {
   font-weight: 500;
 }
 
-/* Hover */
 .date-cell:hover {
   background-color: #f5f7ff;
   transform: scale(1.08);
 }
 
-/* Start Date */
 .date-cell.start {
   background-color: #4f46e5;
   color: white;
   border-radius: 20px 0 0 20px;
 }
 
-/* End Date */
 .date-cell.end {
   background-color: #4f46e5;
   color: white;
   border-radius: 0 20px 20px 0;
 }
 
-/* Single Day Selection */
 .date-cell.start.end {
   border-radius: 20px;
 }
 
-/* In Range */
 .date-cell.in-range {
   background-color: #e0e7ff;
   color: #111;
 }
+
+.date-cell.today {
+  border: 2px solid #22c55e;
+}
+
+.date-cell.start,
+.date-cell.end {
+  transform: scale(1.05);
+}
+
+/* Weekdays */
 .weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -144,13 +139,19 @@ textarea:focus {
   padding: 5px;
   color: #666;
 }
+
+/* Dark Mode */
 .app.dark {
   background-color: #111;
   color: white;
 }
 
-.app.dark .calendar-container {
+.app.dark .container {
   background: #1f1f1f;
+}
+
+.app.dark .notes-section {
+  background-color: #1f1f1f;
 }
 
 .app.dark .date-cell {
@@ -166,27 +167,26 @@ textarea:focus {
   color: white;
   border: 1px solid #555;
 }
-.date-cell.today {
-  border: 2px solid #22c55e;
-}
-.date-cell.start,
-.date-cell.end {
-  transform: scale(1.05);
-}
-.app.dark {
-  background-color: #111;
-  color: white; /* 👈 this fixes most text */
-}
 
-.app.dark .notes-section {
-  background-color: #1f1f1f;
-}
+/* 📱 Responsive */
+@media (max-width: 768px) {
 
-.app.dark textarea {
-  background: #222;
-  color: white;
-  border: 1px solid #555;
-}
-.app.dark .container {
-  background: #1f1f1f;
+  .container {
+    width: 95%;
+    height: auto;
+  }
+
+  .hero-image img {
+    height: 180px;
+  }
+
+  .bottom-section {
+    flex-direction: column;
+  }
+
+  .notes-section,
+  .calendar-section {
+    width: 100%;
+    padding: 15px 20px;
+  }
 }
